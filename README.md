@@ -1,6 +1,8 @@
 # Alchemize
 
-**Status:** Final MVP / Release Candidate Handoff
+[![Stability Check](https://github.com/onlytrafficfans-gif/alchemize-final-handoff/actions/workflows/stability-check.yml/badge.svg)](https://github.com/onlytrafficfans-gif/alchemize-final-handoff/actions/workflows/stability-check.yml)
+
+**Status:** Final MVP / Release Candidate Handoff — verified passing on a clean machine at delivery; see [HANDOFF_VERIFICATION.md](./HANDOFF_VERIFICATION.md)
 
 A React Native app built with Expo for personal wellness management, including habit tracking, fitness, nutrition, finances, and more.
 
@@ -63,6 +65,7 @@ npm audit --audit-level=moderate  # Security audit
 ## Documentation
 
 - **[CLIENT_HANDOFF.md](./CLIENT_HANDOFF.md)** — What's included, what's not, and next steps
+- **[HANDOFF_VERIFICATION.md](./HANDOFF_VERIFICATION.md)** — Verified delivery state, CI results, and how to reproduce them
 - **[KNOWN_LIMITATIONS.md](./KNOWN_LIMITATIONS.md)** — Known issues and documented constraints
 - **[/expo/.env.example](./expo/.env.example)** — Required environment variables
 - **[/expo/docs/](./expo/docs/)** — Detailed technical documentation
