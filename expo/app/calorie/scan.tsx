@@ -32,8 +32,7 @@ import {
   Brain,
   ShieldCheck,
 } from 'lucide-react-native';
-// @ts-ignore — Optional AI dependency for image analysis; install @rork-ai/toolkit-sdk separately if needed
-import { generateObject } from '@rork-ai/toolkit-sdk';
+import { generateObject } from '@/lib/ai';
 import { z } from 'zod';
 import { foodLogsDb, appointmentsDb } from '@/lib/db';
 import { calculateFoodTotals, getAutoMealType, getConfidenceLabel, getHealthScoreColor, parseOptionalNumber } from '@/services/calorieAnalysisService';

@@ -82,13 +82,11 @@ This document outlines known limitations, constraints, and items that need atten
 
 ## Type Safety & Linting
 
-### Unresolved Imports
-- **Files:**
-  - `app/calorie/scan.tsx` — Missing `@rork-ai/toolkit-sdk`
-  - `app/fitness/add.tsx` — Missing `@rork-ai/toolkit-sdk`
-- **Issue:** Optional dependency for image scanning; not in package.json
-- **Fix:** Either install the package or remove references
-- **Impact:** ⚠️ LOW — Code works; just linting warnings
+### AI Features Disabled (Rork SDK removed)
+- **Files:** `app/calorie/scan.tsx`, `app/fitness/add.tsx`, `lib/ai.ts`
+- **Current:** AI calls route through the local `lib/ai.ts` shim, which fails gracefully with a user-facing message. The private `@rork-ai/toolkit-sdk` (only available inside the Rork platform) was removed from `metro.config.js` and screen imports because it cannot be installed from npm and broke all production builds.
+- **Fix:** To enable AI features, implement `generateObject` in `lib/ai.ts` against your own AI backend/provider.
+- **Impact:** ⚠️ MEDIUM — Workout calorie AI-estimation and food photo analysis are disabled until an AI provider is connected; all other features unaffected
 
 ### Unused Variables
 - **Various files** — Unused imports and variables (documented in lint output)
@@ -118,10 +116,9 @@ This document outlines known limitations, constraints, and items that need atten
 - **Impact:** ⚠️ MEDIUM — Development friction for future changes
 
 ### Image Scanning
-- **Current:** Calorie/nutrition image scanning UI present
-- **Issue:** Requires `@rork-ai/toolkit-sdk` (not installed)
-- **Fix:** Install package or disable feature
-- **Impact:** ⚠️ MEDIUM — Feature cannot be used without SDK
+- **Current:** Calorie/nutrition image scanning UI present; analysis calls the `lib/ai.ts` shim and shows a graceful error until an AI provider is connected
+- **Fix:** Implement `generateObject` in `lib/ai.ts` against your own AI backend
+- **Impact:** ⚠️ MEDIUM — Feature disabled until AI provider connected
 
 ### Animations & Performance
 - **Current:** Multiple Animated.Value and useAnimatedStyle hooks
@@ -294,7 +291,7 @@ This document outlines known limitations, constraints, and items that need atten
 | 🟠 MEDIUM | Large component refactoring | Split 1000+ line files |
 | 🟠 MEDIUM | Crash reporting | Add Sentry or Firebase Crashlytics |
 | 🟡 LOW | Unit/integration tests | Add test coverage |
-| 🟡 LOW | Unresolved imports | Install or remove `@rork-ai/toolkit-sdk` |
+| 🟠 MEDIUM | AI features disabled | Implement `generateObject` in `lib/ai.ts` with your AI provider |
 
 ---
 
