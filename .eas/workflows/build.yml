@@ -1,0 +1,23 @@
+name: Build and Submit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_ios:
+    name: EAS iOS Build
+    type: build
+    working_directory: ./expo
+    params:
+      platform: ios
+      profile: production
+
+  build_android:
+    name: EAS Android Build
+    type: build
+    working_directory: ./expo
+    params:
+      platform: android
+      profile: production
