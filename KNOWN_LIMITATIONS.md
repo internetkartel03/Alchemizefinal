@@ -115,6 +115,11 @@ This document outlines known limitations, constraints, and items that need atten
 - **Fix:** Split components into smaller, focused files
 - **Impact:** ⚠️ MEDIUM — Development friction for future changes
 
+### Paywall Hero Image (placeholder)
+- **Current:** `assets/images/paywall-hero.png` is a copy of the splash icon; the original hero artwork was not included in the handoff package and the missing file broke production bundling
+- **Fix:** Replace `expo/assets/images/paywall-hero.png` with final marketing artwork when available
+- **Impact:** ⚠️ LOW — Cosmetic only; paywall renders correctly
+
 ### Image Scanning
 - **Current:** Calorie/nutrition image scanning UI present; analysis calls the `lib/ai.ts` shim and shows a graceful error until an AI provider is connected
 - **Fix:** Implement `generateObject` in `lib/ai.ts` against your own AI backend
