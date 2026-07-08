@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "FRC Enterprise - Alchemize",
-    "slug": "alchemize",
+    "slug": "alchemize-level-up",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
